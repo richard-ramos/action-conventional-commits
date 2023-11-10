@@ -37740,7 +37740,9 @@ function run() {
         }
         core.endGroup();
         if (hasErrors) {
-            core.setFailed(`🚫 According to the conventional-commits specification, some of the commit messages are not valid.`);
+            const message = 'According to the conventional-commits specification, some of the commit messages are not valid.';
+            core.setOutput('error_message', message);
+            core.setFailed(`🚫 ${message}`);
         }
         else {
             core.info("🎉 All commit messages are following the Conventional Commits specification.");
